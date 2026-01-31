@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo3mgehurvcke"]
+
+[ext_resource type="Script" uid="uid://c7bpohc8dycg4" path="res://SCRIPTS/registro.gd" id="1_tfjsw"]
+[ext_resource type="Texture2D" uid="uid://cfxyj30alyifs" path="res://imagenes/24.png" id="2_tfjsw"]
+
+[node name="Registro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tfjsw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -99.0
+offset_right = 442.82886
+offset_bottom = 782.0333
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7237494, 0.6945565)
+texture = ExtResource("2_tfjsw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 501.99997
+offset_top = 212.0
+offset_right = 686.74585
+offset_bottom = 477.39203
+scale = Vector2(0.84981596, 0.862465)
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DiaInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+placeholder_text = "DD"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MesInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+placeholder_text = "MM"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="AnioInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+placeholder_text = "AAAA"
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BotonConfirmar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Reveal destiny"
+
+[connection signal="pressed" from="VBoxContainer/BotonConfirmar" to="." method="_on_boton_confirmar_pressed"]
