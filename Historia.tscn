@@ -70,7 +70,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"BrujaAnimada",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -114,7 +114,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"SpriteDialogo ",
-"speed": 5.0
+"speed": 0.5
 }]
 
 [node name="Historia" type="Control"]
@@ -163,26 +163,32 @@ stream = ExtResource("3_5v0m6")
 autoplay = true
 
 [node name="AudioEfectos" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("4_xg6iu")
 
 [node name="BrujaAnimada" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 z_index = 1
-position = Vector2(613, 231)
+position = Vector2(630, 196)
 sprite_frames = SubResource("SpriteFrames_xfhlc")
 animation = &"BrujaAnimada"
+autoplay = "BrujaAnimada"
+frame_progress = 0.30024663
 
 [node name="SpriteDialogo" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 z_index = 1
-position = Vector2(627, 241)
+position = Vector2(624.99994, 246.99998)
 scale = Vector2(0.5845666, 0.6319149)
 sprite_frames = SubResource("SpriteFrames_xfhlc")
 animation = &"SpriteDialogo "
-frame = 10
-frame_progress = 0.5544108
+autoplay = "SpriteDialogo "
+frame_progress = 0.62729025
 
 [node name="UI_Contenedor" type="CanvasLayer" parent="."]
 
 [node name="BotonJugar" type="TextureButton" parent="UI_Contenedor"]
+unique_name_in_owner = true
 z_index = 5
 offset_left = 454.00003
 offset_top = 339.0
@@ -192,6 +198,7 @@ scale = Vector2(0.784125, 0.70265204)
 texture_normal = ExtResource("23_8bk0s")
 
 [node name="BotonTarotDia" type="TextureButton" parent="UI_Contenedor"]
+unique_name_in_owner = true
 z_index = 5
 offset_left = 78.0
 offset_top = 27.0
@@ -201,12 +208,13 @@ scale = Vector2(0.6076734, 0.61597955)
 texture_normal = ExtResource("24_ihdcp")
 
 [node name="BotonTarotAnio" type="TextureButton" parent="UI_Contenedor"]
+unique_name_in_owner = true
 z_index = 5
-offset_left = 838.99994
-offset_top = 47.0
-offset_right = 1101.0
-offset_bottom = 362.0
-scale = Vector2(0.6988376, 0.61144346)
+offset_left = 850.0
+offset_top = 40.0
+offset_right = 1112.0
+offset_bottom = 366.4483
+scale = Vector2(0.68083906, 0.65237224)
 texture_normal = ExtResource("25_otxj1")
 
 [connection signal="pressed" from="UI_Contenedor/BotonJugar" to="." method="_on_boton_jugar_pressed"]

@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://i2u00yojqenu"]
+
+[ext_resource type="Script" uid="uid://d1cqo4aod444d" path="res://SCRIPTS/menú.gd" id="1_p0p3r"]
+[ext_resource type="Texture2D" uid="uid://cx1o43diiewyc" path="res://imagenes/FONDO.png" id="2_ydv2e"]
+[ext_resource type="Texture2D" uid="uid://bxt2la8vdia8p" path="res://imagenes/oraculo-removebg-preview.png" id="3_wn7g2"]
+[ext_resource type="Script" uid="uid://bj0jjsra2627h" path="res://SCRIPTS/texture_button.gd" id="4_cqlnp"]
+[ext_resource type="AudioStream" uid="uid://gxnbfcbr5cto" path="res://sounds/bruja play.mp3" id="5_7uqj4"]
+[ext_resource type="Texture2D" uid="uid://t7liloa6kcuw" path="res://imagenes/nombre_l-removebg-preview.png" id="6_wantx"]
+[ext_resource type="Texture2D" uid="uid://sea5bhn5ahs3" path="res://imagenes/exit-removebg-preview.png" id="7_qud72"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nienm"]
+
+[node name="menú" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p0p3r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -183.0
+offset_right = 83.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_ydv2e")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.99997
+offset_top = -155.0
+offset_right = 198.0
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.86182785, 0.8548333)
+texture_normal = ExtResource("3_wn7g2")
+script = ExtResource("4_cqlnp")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TextureButton"]
+stream = ExtResource("5_7uqj4")
+volume_db = 10.0
+autoplay = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 10.0
+offset_right = 888.0
+offset_bottom = 210.0
+texture = ExtResource("6_wantx")
+
+[node name="RubikBeastlyRemovebgPreview" type="Sprite2D" parent="."]
+position = Vector2(210, 396)
+texture = SubResource("CompressedTexture2D_nienm")
+
+[node name="exit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 890.0
+offset_top = 427.99997
+offset_right = 1217.0
+offset_bottom = 678.0
+scale = Vector2(0.69882864, 0.72964084)
+texture_normal = ExtResource("7_qud72")
+
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

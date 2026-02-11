@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://b17w8citpxrt3"]
+
+[ext_resource type="Texture2D" uid="uid://djyxafhe6urgp" path="res://imagenes/dauydia.png" id="1_ofono"]
+[ext_resource type="Script" uid="uid://dpdyjc8buv0xw" path="res://SCRIPTS/dia.gd" id="1_v83wk"]
+[ext_resource type="Texture2D" uid="uid://pcw2uhdqc5oi" path="res://imagenes/peer-removebg-preview.png" id="3_egy44"]
+[ext_resource type="Texture2D" uid="uid://c43e6ertd7viu" path="res://imagenes/b-removebg-preview.png" id="4_aa5ib"]
+[ext_resource type="AudioStream" uid="uid://b7xnbln6llkle" path="res://sounds/DIA.mp3" id="5_44tpo"]
+
+[node name="día" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_v83wk")
+
+[node name="fondo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -43.0
+offset_top = -308.0
+offset_right = 1176.0
+offset_bottom = 960.0
+pivot_offset = Vector2(640, 360)
+texture = ExtResource("1_ofono")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 99.0
+offset_right = 728.0
+offset_bottom = 561.0
+
+[node name="CartaPrincipal" type="TextureRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+expand_mode = 1
+
+[node name="ResultadoTexto" type="Label" parent="."]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 570.0
+offset_right = 587.0
+offset_bottom = 615.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -16.0
+offset_right = 408.0
+offset_bottom = 697.0
+texture = ExtResource("3_egy44")
+
+[node name="DescripcionTexto" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 110.0
+offset_right = 322.0
+offset_bottom = 556.0
+text = "RFERFEFEF"
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 952.00006
+offset_top = 48.0
+offset_right = 1536.0
+offset_bottom = 476.0
+scale = Vector2(0.27732837, 0.32483798)
+texture_normal = ExtResource("4_aa5ib")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_44tpo")
+autoplay = true
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

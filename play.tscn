@@ -1,0 +1,139 @@
+[gd_scene load_steps=10 format=3 uid="uid://cf8s82e1kjt7n"]
+
+[ext_resource type="Script" uid="uid://u4y43fanwigi" path="res://SCRIPTS/play.gd" id="1_6yako"]
+[ext_resource type="Texture2D" uid="uid://vt5ptb48baed" path="res://imagenes/Diseño sin título.jpg" id="2_j8nwa"]
+[ext_resource type="Texture2D" uid="uid://colm6i64eqr51" path="res://imagenes/finality.png" id="3_ohq61"]
+[ext_resource type="Texture2D" uid="uid://tlkfmu6q64et" path="res://imagenes/luz-removebg-preview.png" id="4_xnuq8"]
+[ext_resource type="Texture2D" uid="uid://pm1qgmqmijqa" path="res://imagenes/frse-removebg-preview.png" id="5_4jlo8"]
+[ext_resource type="Texture2D" uid="uid://cpiygipf7ov0" path="res://imagenes/BACK.png" id="6_f8t4j"]
+[ext_resource type="AudioStream" uid="uid://d3kpbt8nkl7kr" path="res://sounds/SIREN.mp3" id="7_xnuq8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmad5"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j8nwa"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[node name="LecturaMistica" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_6yako")
+
+[node name="FondoEstatico" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 653.0
+texture = ExtResource("2_j8nwa")
+expand_mode = 1
+
+[node name="FiltroBorroso" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gmad5")
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 1, 1, 0.38039216)
+
+[node name="ZodiacLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 181.0
+offset_right = 1152.0
+offset_bottom = 254.0
+
+[node name="PreguntaContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 254.0
+offset_right = 760.0
+offset_bottom = 458.0
+
+[node name="InputPregunta" type="LineEdit" parent="PreguntaContainer"]
+layout_mode = 2
+keep_editing_on_text_submit = true
+clear_button_enabled = true
+
+[node name="Label" type="Label" parent="PreguntaContainer"]
+layout_mode = 2
+
+[node name="BotonNext" type="Button" parent="PreguntaContainer"]
+layout_mode = 2
+text = "NEXT"
+
+[node name="MazoArco" type="Node2D" parent="."]
+position = Vector2(581.99994, -179)
+rotation = -3.0488586
+
+[node name="ZonaSeleccion" type="Marker2D" parent="."]
+position = Vector2(589, 313)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(565, 303)
+scale = Vector2(2, 4)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_j8nwa")
+
+[node name="CapaEfectos" type="CanvasLayer" parent="."]
+
+[node name="FlashBlanco" type="ColorRect" parent="CapaEfectos"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ImagenFinal" type="TextureRect" parent="CapaEfectos"]
+offset_left = 1.0
+offset_top = -238.0
+offset_right = 1025.0
+offset_bottom = 786.0
+scale = Vector2(1.1238447, 1.1191498)
+texture = ExtResource("3_ohq61")
+
+[node name="gris" type="TextureRect" parent="CapaEfectos/ImagenFinal"]
+layout_mode = 0
+offset_left = 143.17532
+offset_top = 467.35638
+offset_right = 792.1753
+offset_bottom = 895.3564
+scale = Vector2(1.1563591, 0.8464667)
+texture = ExtResource("4_xnuq8")
+
+[node name="text" type="TextureRect" parent="CapaEfectos/ImagenFinal"]
+layout_mode = 0
+offset_left = 174.99203
+offset_top = 462.59723
+offset_right = 823.99207
+offset_bottom = 827.5973
+scale = Vector2(0.94656485, 1.027933)
+texture = ExtResource("5_4jlo8")
+
+[node name="ContenedorResultados" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -326.0
+offset_top = 306.0
+offset_right = -286.0
+offset_bottom = 346.0
+
+[node name="LabelDescripcion" type="Label" parent="ContenedorResultados"]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 154.0
+offset_right = 908.0
+offset_bottom = 407.0
+
+[node name="back" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 939.0
+offset_top = 51.000004
+offset_right = 1439.0
+offset_bottom = 550.00006
+scale = Vector2(0.341859, 0.37689412)
+texture_normal = ExtResource("6_f8t4j")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_xnuq8")
+autoplay = true
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
